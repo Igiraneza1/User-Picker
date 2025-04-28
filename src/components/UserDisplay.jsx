@@ -1,4 +1,4 @@
-// UserDisplay.jsx
+
 import React, { useContext } from 'react';
 import { FavoriteUserContext } from './FavoriteUserContext';
 

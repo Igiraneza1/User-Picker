@@ -1,4 +1,4 @@
-// UserPicker.jsx
+
 import React, { useState, useEffect, useContext } from 'react';
 import { FavoriteUserContext } from './FavoriteUserContext';
 
@@ -30,14 +30,18 @@ function UserPicker() {
   return (
 
     <div>
-      <h2>Pick Your Favorite User</h2>
-      <ul>
+      <h2 className='bg-orange-500 p-3 text-center font-bold text-xl'>Pick Your Favorite User</h2>
+      <ul className='list-disc list-inside p-3'>
+        {users.length === 0 && <p>No users found.</p>}
+        {users.length > 0 && <p className='font-bold m-5'>Click on a user to select your favorite:</p>} 
         {users.map((user) => (
           <li
             key={user.id}
-            onClick={() => setFavoriteUser({ name: user.name, email: user.email })}
+            onClick={() => setFavoriteUser({ id:user.id, name: user.name, email: user.email })}
           >
-            {user.name} ({user.email})
+            <strong>Id: </strong> {user.id}<br/> 
+            <strong>Name:</strong> {user.name}<br/> 
+            <strong>Email:</strong> {user.email}
           </li>
         ))}
       </ul>
